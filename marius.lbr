@@ -705,6 +705,24 @@ grid 5 mm, 8.5 x 6 x 11.4 mm</description>
 <rectangle x1="-2.7432" y1="-3.6576" x2="-1.8796" y2="-1.8034" layer="51"/>
 <rectangle x1="1.8796" y1="-3.6576" x2="2.7432" y2="-1.8034" layer="51"/>
 </package>
+<package name="NOKIA5110_DX">
+<pad name="RST" x="-9.59" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="CE" x="-7.05" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="DC" x="-4.51" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="DIN" x="-1.97" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="CLK" x="0.57" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="VCC" x="3.11" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="BL" x="5.65" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<pad name="GND" x="8.19" y="-18.86" drill="0.8" diameter="1.6764" shape="octagon"/>
+<wire x1="-21.59" y1="-22.86" x2="21.41" y2="-22.86" width="0.127" layer="21"/>
+<wire x1="21.41" y1="-22.86" x2="21.41" y2="22.14" width="0.127" layer="21"/>
+<wire x1="21.41" y1="22.14" x2="-21.59" y2="22.14" width="0.127" layer="21"/>
+<wire x1="-21.59" y1="22.14" x2="-21.59" y2="-22.86" width="0.127" layer="21"/>
+<hole x="-17.59" y="20.34" drill="3"/>
+<hole x="17.41" y="20.34" drill="3"/>
+<hole x="17.41" y="-20.66" drill="3"/>
+<hole x="-17.59" y="-20.66" drill="3"/>
+</package>
 </packages>
 <symbols>
 <symbol name="1N5819">
@@ -1383,6 +1401,20 @@ grid 5 mm, 8.5 x 6 x 11.4 mm</description>
 <vertex x="1.778" y="-0.254"/>
 </polygon>
 </symbol>
+<symbol name="NOKIA5110">
+<pin name="RST" x="-10.16" y="17.78" length="middle"/>
+<pin name="CE" x="-10.16" y="12.7" length="middle"/>
+<pin name="DC" x="-10.16" y="7.62" length="middle"/>
+<pin name="DIN" x="-10.16" y="2.54" length="middle"/>
+<pin name="CLK" x="-10.16" y="-2.54" length="middle"/>
+<pin name="VCC" x="-10.16" y="-7.62" length="middle"/>
+<pin name="BL" x="-10.16" y="-12.7" length="middle"/>
+<pin name="GND" x="-10.16" y="-17.78" length="middle"/>
+<wire x1="-5.08" y1="20.32" x2="-5.08" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-20.32" x2="7.62" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-20.32" x2="7.62" y2="20.32" width="0.254" layer="94"/>
+<wire x1="7.62" y1="20.32" x2="-5.08" y2="20.32" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="1N5819">
@@ -1840,7 +1872,12 @@ nominal inductance, magnetically screened</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="NDT2955">
+<deviceset name="NDT2955" prefix="Q">
+<description>NDT2955
+P-Channel Enhancement Mode Field Effect Transistor
+
+60V  2,5A  0,095Ω &lt;0,30Ω (10V)  &lt;0,50Ω (4,5V)
+Logic Level Gate Drive</description>
 <gates>
 <gate name="G$1" symbol="MOSFET_P" x="0" y="0"/>
 </gates>
@@ -1850,6 +1887,28 @@ nominal inductance, magnetically screened</description>
 <connect gate="G$1" pin="D" pad="2 4"/>
 <connect gate="G$1" pin="G" pad="1"/>
 <connect gate="G$1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="NOKIA5110">
+<gates>
+<gate name="G$1" symbol="NOKIA5110" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="NOKIA5110_DX">
+<connects>
+<connect gate="G$1" pin="BL" pad="BL"/>
+<connect gate="G$1" pin="CE" pad="CE"/>
+<connect gate="G$1" pin="CLK" pad="CLK"/>
+<connect gate="G$1" pin="DC" pad="DC"/>
+<connect gate="G$1" pin="DIN" pad="DIN"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="RST" pad="RST"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
 </connects>
 <technologies>
 <technology name=""/>
